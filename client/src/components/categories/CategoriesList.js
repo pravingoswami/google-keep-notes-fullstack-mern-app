@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import CategoryForm from './CategoryForm'
 
 function CategoriesList(props){
     return(
@@ -10,11 +12,19 @@ function CategoriesList(props){
         props.categories && (
             <ol>
                 {
-                    props.categories.map(cat => <li>{cat.name}</li>)
+                    props.categories.map(cat => <li>{cat.name} &nbsp;&nbsp;
+                    <Link><button>view detail</button></Link>&nbsp;&nbsp;
+                    <button>remove</button>&nbsp;&nbsp;
+                    
+                     </li>)
                 }
             </ol>
         )
     }
+<br></br>
+<br></br>
+    <h1> Add Category</h1>
+    <CategoryForm  />
         </div>
     )
 }

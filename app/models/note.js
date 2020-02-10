@@ -24,6 +24,7 @@ const noteSchema = new Schema({
     },
     color : {
         type : String,
+        default : "white"
     },
     pinned : {
         type : Boolean,

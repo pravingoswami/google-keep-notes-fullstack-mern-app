@@ -28,7 +28,7 @@ if(localStorage.getItem('x-auth')){
         console.log('index.jssjsjlfelhef',response.data)
             // const user = response.data
             const user = response.data
-            // store.dispatch(setUser(user))
+            store.dispatch(setUser(user))
             store.dispatch(startGetCategories())
             store.dispatch(startGetNotes())
             // store.dispatch(startSetCustomers())

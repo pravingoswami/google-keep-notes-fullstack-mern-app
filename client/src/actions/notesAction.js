@@ -76,3 +76,27 @@ export const startRemoveNote = (id) => {
             })
     } 
 }
+
+export const editNote = (id, note) => {
+    return {
+        type : 'EDIT_NOTE',
+        payload : {
+            id, note
+        }
+    }
+}
+
+export const startEditNote = (id, formData, redirect) => {
+    return (dispatch) => {
+        axios.put(`http://localhost:3031/notes/${id}`,formData, {
+            headers : {
+                'x-auth' : localStorage.getItem('x-auth')}
+        })
+        .then(response => {
+            redirect && redirect()
+            dispatch(editNote(id, response.data))
+
+        })
+
+    }
+} 

@@ -22,6 +22,7 @@ import NoteList from './components/notes/NoteList'
 import CategoriesList from './components/categories/CategoriesList'
 import NoteCreate from './components/notes/NoteCreate'
 import NoteShow from './components/notes/NoteShow'
+import EditNote from './components/notes/EditNote'
 
 
 
@@ -101,6 +102,7 @@ function App (props) {
         <Route path = "/notes" component = {NoteList} exact = {true}/>
         <Route path = "/notes/add-notes" component = {NoteCreate}/>
         <Route path = "/notes/note-detail/:note" component = {NoteShow}/>
+        <Route path = "/notes/edit-note/:note" component = {EditNote}/>
         <Route path = "/categories" component = {CategoriesList}/>
         </Switch>
 

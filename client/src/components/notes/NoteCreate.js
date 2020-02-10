@@ -1,7 +1,7 @@
 import React from 'react'
 import NoteForm from './NoteForm'
 import { Container } from 'reactstrap'
-import { startAddNotes } from '../../actions/notesAction'
+import { startAddNotes, startEditNote } from '../../actions/notesAction'
 import {connect} from 'react-redux'
 
 
@@ -14,6 +14,7 @@ class NoteCreate extends React.Component{
 
     handleSubmitNote = (formDate) => {
         console.log('data in ', formDate)
+
         const redirect = () => this.props.history.push('/notes')
         this.props.dispatch(startAddNotes(formDate, redirect))
     }

@@ -10,8 +10,8 @@ class NoteForm extends React.Component{
         super()
         console.log('propsssss',props.categories)
         this.state = {
-            title : '',
-            description : '',
+            title : props.note ? props.note.title : '',
+            description : props.note ? props.note.description : '',
             categories : props.categories,
             noteImage : '',
             category : ''
@@ -74,7 +74,7 @@ class NoteForm extends React.Component{
 
     render(){
         return(
-            <div>
+            <div>{console.log('temp',  this.props.note)}
 
                 <Form>
                 <Label for="title">Title</Label>
@@ -111,9 +111,10 @@ class NoteForm extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
     return {
-        categories : state.categories
+        categories : state.categories,
+        note : state.notes.find(note => note._id == props.note)
     }
 }
 

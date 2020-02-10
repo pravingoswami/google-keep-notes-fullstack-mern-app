@@ -32,7 +32,7 @@ module.exports.update = (req, res) => {
     const id = req.params.id
     const body = req.body
     Note.findOneAndUpdate({_id : id, user : req.user._id}, body, {new : true, runValidators : true})
-        ,then(note => note ? res.json(note) : res.json({}))
+        .then(note => note ? res.json(note) : res.json({}))
         .catch(err => res.json(err))
 }
 

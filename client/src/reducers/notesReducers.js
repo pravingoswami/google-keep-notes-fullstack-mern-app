@@ -15,6 +15,25 @@ const notesReducers = (state = notesInitialState , action) => {
             return state.filter(note => note._id != action.payload)
         }
 
+        case 'EDIT_NOTE' : {
+            return state.map(note => {
+                if(note._id == action.payload.id){
+                    return {...note, ...action.payload.note}
+                    // return Object.assign({}, action.payload.note)
+                } else {
+                    return {...note}
+                }
+
+
+                // if(product.id == action.payload){
+                //     return {...product, ...{available : !product.available}}
+                // } else {
+                //     return {...product}
+                // }
+            // })
+            })
+        }
+
         default : {
             return [...state]
         }
