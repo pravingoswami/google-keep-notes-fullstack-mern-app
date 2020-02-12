@@ -8,14 +8,15 @@ module.exports.list = (req, res) => {
 }
 
 module.exports.create = (req, res) => {
-    console.log(req.body.noteImage)
-    const body = pick(req.body, ['title', "description", 'noteImage', 'category'])
+    // console.log(req.body.noteImage)
+    const body = pick(req.body, ['title', "description", 'category'])
+    // const body = req.body
     // console.log(body)
 
     const note = new Note(body)
 
     note.user = req.user._id
-    console.log(note)
+    // console.log(note)
     note.save()
         .then(note => res.json(note))
         .catch(err => res.json(err))

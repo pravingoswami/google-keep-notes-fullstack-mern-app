@@ -26,6 +26,7 @@ export const startLoginUser = (formData, redirect) => {
                     console.log('localStorage', localStorage)
                     dispatch(setUser(response.data.user))
                     redirect()
+                    // props.history.push('/home')
                 }
             })
 

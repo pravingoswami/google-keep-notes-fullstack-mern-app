@@ -7,6 +7,24 @@ const categoriesReducers = (state = categoriesInitialState , action) => {
             return [...state, ...action.payload]
         }
 
+        case 'ADD_CATEGORY' : {
+            return [...state, action.payload]
+        }
+
+        case 'REMOVE_CATEGORY' : {
+            return state.filter(cat => cat._id != action.payload)
+        }
+
+        case 'EDIT_CATEGORY' : {
+            return state.map(cat => {
+                if(cat._id == action.payload.id){
+                    return {...cat, ...action.payload.category}
+                } else {
+                    return {...cat}
+                }
+            })
+        }
+
         default : {
             return [...state]
         }

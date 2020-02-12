@@ -4,6 +4,7 @@ const notesControllers = require('../app/controllers/notesControllers')
 const categoriesControllers = require('../app/controllers/categoriesControllers')
 
 const authenticateUser = require('../app/middleware/authenticateUser')
+const MulterImage = require('../app/middleware/Multer')
 
 const router = express.Router()
 
@@ -16,7 +17,7 @@ router.delete('/users/destroy/:id', usersControllers.destroy)
 
 
 router.get('/notes', authenticateUser, notesControllers.list)
-router.post('/notes', authenticateUser, notesControllers.create)
+router.post('/notes', authenticateUser, MulterImage , notesControllers.create)
 router.get('/notes/:id', authenticateUser, notesControllers.show)
 router.put('/notes/:id', authenticateUser, notesControllers.update)
 router.delete('/notes/:id', authenticateUser, notesControllers.destroy)

@@ -23,6 +23,10 @@ import CategoriesList from './components/categories/CategoriesList'
 import NoteCreate from './components/notes/NoteCreate'
 import NoteShow from './components/notes/NoteShow'
 import EditNote from './components/notes/EditNote'
+import CategoryView from './components/categories/CategoryView'
+import CategoryEdit from './components/categories/CategoryEdit'
+import NoteArchived from './components/notes/NoteArchived'
+import NoteBin from './components/notes/NoteBin'
 
 
 
@@ -95,15 +99,20 @@ function App (props) {
       </Collapse>
     </Navbar>
         <Switch>        
-          Route path = "/home" component = {Home} />
+          <Route path = "/home" component = {Home} />
         <Route path = "/login" component = {Login} />
         <Route path = "/register" component = {Register} />
         <Route path = "/logout" component = {Home}/>
         <Route path = "/notes" component = {NoteList} exact = {true}/>
         <Route path = "/notes/add-notes" component = {NoteCreate}/>
         <Route path = "/notes/note-detail/:note" component = {NoteShow}/>
+        <Route path = "/notes/note-archived" component = {NoteArchived}/>
+        <Route path = "/notes/note-bin" component = {NoteBin}/>
+
         <Route path = "/notes/edit-note/:note" component = {EditNote}/>
-        <Route path = "/categories" component = {CategoriesList}/>
+        <Route path = "/categories" component = {CategoriesList} exact = {true}/>
+        <Route path = "/categories/category-detail/:category" component = {CategoryView}/>
+        <Route path = "/categories/category-edit/:category" component = {CategoryEdit}/>
         </Switch>
 
       

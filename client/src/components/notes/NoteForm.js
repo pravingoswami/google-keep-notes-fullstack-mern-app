@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 // import Select from 'react-select'
 import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css'
+const FromData = require('form-data')
 
 class NoteForm extends React.Component{
     
@@ -53,6 +54,8 @@ class NoteForm extends React.Component{
                 formData.description = this.state.description
                 this.state.noteImage != "" && (formData.noteImage = this.state.noteImage)
                 this.state.category != "" && (formData.category = this.state.category)
+            // formData.append('title', this.state.title)
+            // formData.append('description', this.state.description)
 
             console.log(formData)
 
@@ -87,7 +90,7 @@ class NoteForm extends React.Component{
 
                 <br></br>
                 <Label for="image">File</Label>
-                <Input type="file" name="noteImage" onChange = {this.handleFile} id="image" />
+                <Input type="file" name="noteImage" onChange = {this.handleFile} id="image"  enctype="multipart/form-data"  />
                 
 
                 <br></br>

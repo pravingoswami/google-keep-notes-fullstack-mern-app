@@ -63,6 +63,7 @@ class Login extends React.Component{
         }
         const redirect = () => this.props.history.push('/home')
         this.props.dispatch(startLoginUser(formData, redirect))
+        // this.props.dispatch(startLoginUser(formData, this.props))
         console.log(formData)
         
     }

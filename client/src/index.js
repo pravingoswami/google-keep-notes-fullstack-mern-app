@@ -31,10 +31,7 @@ if(localStorage.getItem('x-auth')){
             store.dispatch(setUser(user))
             store.dispatch(startGetCategories())
             store.dispatch(startGetNotes())
-            // store.dispatch(startSetCustomers())
-            // store.dispatch(startSetDepartments())
-            // store.dispatch(startSetEmployees())
-            // store.dispatch(startSetTickets())     
+             
     })             
 }
 

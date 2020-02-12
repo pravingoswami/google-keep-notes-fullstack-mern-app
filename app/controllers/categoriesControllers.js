@@ -26,7 +26,7 @@ module.exports.update = (req, res) => {
     const id = req.params.id
     const body = req.body
     Category.findOneAndUpdate({_id : id, user : req.user._id}, body, {new : true, runValidators : true})
-        ,then(category => category ? res.json(category) : res.json({}))
+        .then(category => category ? res.json(category) : res.json({}))
         .catch(err => res.json(err))
 }
 

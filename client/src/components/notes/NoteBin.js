@@ -5,7 +5,7 @@ import { startRemoveNote, startEditNote } from '../../actions/notesAction'
 import { Button } from 'reactstrap';
 
 
-function NoteList(props){
+function NoteArchived(props){
 
 const handleRemoveNote = (id) => {
     console.log('note',id)
@@ -27,12 +27,16 @@ const handleEditNoteBin = (id, bin) => {
 
     return(
         <div>
+            {/* <h1>Notes </h1> */}
             <h1>Notes &nbsp; &nbsp;  <Link to = "/notes" > <Button color="primary" >List</Button>{' '}</Link>
              <Link to = "/notes/note-archived" > <Button color="primary" >Archived</Button>{' '}</Link>
              <Link to = "/notes/note-bin" > <Button color="primary" >Bin</Button>{' '}</Link></h1>
             <h2> Notes - {props.notes.length}</h2>
 
 
+            {
+
+            }
 
             {
                 props.notes && (
@@ -76,11 +80,11 @@ const handleEditNoteBin = (id, bin) => {
 }
 
 const mapstatetoProps = (state) => {
-    let notes =  state.notes.sort((a, b) => a.pinned - b.pinned).filter(note => note.archived == false)
-    // notes = state.notes.sort((a, b) => a.pinned - b.pinned).filter(note => note.bin == false)
+    let notes = state.notes.sort((a, b) => a.pinned - b.pinned).filter(note => note.bin == true)
+    // notes =  state.notes.sort((a, b) => a.pinned - b.pinned).filter(note => note.archived == false)
     return {
         notes : notes
     }
 }
 
-export default connect(mapstatetoProps)(NoteList)
+export default connect(mapstatetoProps)(NoteArchived)

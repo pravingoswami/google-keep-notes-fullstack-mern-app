@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
-import { startRemoveNote, startEditNote } from '../../actions/notesAction'
 import { Button } from 'reactstrap';
+import { startRemoveNote, startEditNote } from '../../actions/notesAction'
 
 
-function NoteList(props){
+function NoteArchived(props){
 
 const handleRemoveNote = (id) => {
     console.log('note',id)
@@ -33,6 +33,9 @@ const handleEditNoteBin = (id, bin) => {
             <h2> Notes - {props.notes.length}</h2>
 
 
+            {
+
+            }
 
             {
                 props.notes && (
@@ -76,11 +79,11 @@ const handleEditNoteBin = (id, bin) => {
 }
 
 const mapstatetoProps = (state) => {
-    let notes =  state.notes.sort((a, b) => a.pinned - b.pinned).filter(note => note.archived == false)
+    let notes =  state.notes.sort((a, b) => a.pinned - b.pinned).filter(note => note.archived == true)
     // notes = state.notes.sort((a, b) => a.pinned - b.pinned).filter(note => note.bin == false)
     return {
         notes : notes
     }
 }
 
-export default connect(mapstatetoProps)(NoteList)
+export default connect(mapstatetoProps)(NoteArchived)
