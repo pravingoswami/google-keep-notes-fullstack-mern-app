@@ -4,7 +4,7 @@ const notesControllers = require('../app/controllers/notesControllers')
 const categoriesControllers = require('../app/controllers/categoriesControllers')
 
 const authenticateUser = require('../app/middleware/authenticateUser')
-const MulterImage = require('../app/middleware/Multer')
+const multer = require('multer')
 
 const router = express.Router()
 
@@ -15,11 +15,21 @@ router.get('/users/account',authenticateUser, usersControllers.account)
 router.delete('/users/logout',authenticateUser, usersControllers.logout)
 router.delete('/users/destroy/:id', usersControllers.destroy)
 
+const storage = multer.diskStorage({
+    destination : function(req, file, cb){
+        cb(null, './uploads/')
+    },
+    filename : function(req, file, cb){
+        cb(null, file.originalname)
+    }
+})
+
+const upload = multer({storage : storage})
 
 router.get('/notes', authenticateUser, notesControllers.list)
-router.post('/notes', authenticateUser, MulterImage , notesControllers.create)
+router.post('/notes', authenticateUser, upload.single('noteImage') , notesControllers.create)
 router.get('/notes/:id', authenticateUser, notesControllers.show)
-router.put('/notes/:id', authenticateUser, notesControllers.update)
+router.put('/notes/:id', authenticateUser,  upload.single('noteImage'), notesControllers.update)
 router.delete('/notes/:id', authenticateUser, notesControllers.destroy)
 // router.get('/notes/info',notesControllers.info)
 
