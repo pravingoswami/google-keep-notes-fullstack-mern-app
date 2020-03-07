@@ -9,7 +9,7 @@ const app = express()
 
 setupDB()
 app.use(cors())
-const port = 3031
+const port =  process.env.PORT || 3031
 // app.use(express.urlencoded({type : "application/x-www-form-urlencoded"}))
 // app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
