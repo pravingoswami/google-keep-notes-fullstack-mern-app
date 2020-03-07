@@ -59,7 +59,7 @@ function App (props) {
           </NavItem>
 
         {
-          Object.keys(props.user).length > 0 ? (
+          Object.keys(props.user).length > 1 ? (
             <React.Fragment>
             <NavItem>
             <NavLink ><Link to ="/notes" style = {LinkStyle} >NOTES</Link></NavLink>

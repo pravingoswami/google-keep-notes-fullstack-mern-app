@@ -37,7 +37,7 @@ module.exports.login = (req, res) => {
 
 module.exports.account = (req, res) => {
     res.send(req.user)
-}
+} 
 
 module.exports.logout = (req, res) => {
     const {user , token} = req

@@ -55,6 +55,8 @@ export const startRegisterUser = (formData, redirect) => {
     }
 }
 
+
+
 export const startRemoveUser = () => {
     return (dispatch) => {
         axios.delete('http://localhost:3031/users/logout', {
