@@ -3,6 +3,7 @@ const setupDB = require('./config/database')
 const router = require('./config/routes')
 const cors = require('cors')
 const bodyParser  = require('body-parser')
+const path = require('path') 
 
 const app = express()
 

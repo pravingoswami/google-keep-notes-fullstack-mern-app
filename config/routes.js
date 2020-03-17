@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({storage : storage})
-
+router.get('/notes', authenticateUser, notesControllers.list)
 router.get('/notes', authenticateUser, notesControllers.list)
 router.post('/notes', authenticateUser, upload.single('noteImage') , notesControllers.create)
 router.get('/notes/:id', authenticateUser, notesControllers.show)
